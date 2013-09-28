@@ -6,7 +6,6 @@ A CLASSIFICATION Problem
 - 35 Variables (Mostly Categorical)
 - 19 Outcome classes 
 
-This for practise purpose only
 """
 
 # Loading the database from "mlbench"
@@ -38,5 +37,5 @@ library(gridExtra)
 do.call(grid.arrange, plots)
 # For smaller grids below code is used
 multiplot <- do.call(marrangeGrob, c(plots, list(nrow = 3, ncol = 2)))
-# Saving the Output in ml.pdf
-ggsave("ml.pdf", multiplot)
+# Saving the Output in ml.pdf in the chapter directory
+ggsave("Chap3/Ex 3.2 Soybean/Category graphs.pdf", multiplot)
