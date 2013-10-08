@@ -6,6 +6,7 @@ library(mlbench)
 data(Glass) # 214 Obs, 10 Variables
 str(Glass)
 
+library(e1071)
 skewness(Glass$RI)
 hist(Glass$RI)
 
@@ -13,7 +14,6 @@ hist(Glass$RI)
 colNam <- colnames(Glass)
 
 # Matrix Plot of Histogram(distribution) & Skewness
-library(e1071)
 par(mfrow=c(3, 3)) # 3 X 3 Matrix Plot
 for(i in 1:9) {
   hist(Glass[, i], 

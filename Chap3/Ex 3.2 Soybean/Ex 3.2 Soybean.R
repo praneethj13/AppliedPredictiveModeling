@@ -34,8 +34,29 @@ plots = lapply(unique(colNam), myplot)
 library(gridExtra)
 
 # Plots all variables in one plot
-do.call(grid.arrange, plots)
+# do.call(grid.arrange, plots)
+
 # For smaller grids below code is used
 multiplot <- do.call(marrangeGrob, c(plots, list(nrow = 3, ncol = 2)))
 # Saving the Output in ml.pdf in the chapter directory
 ggsave("Chap3/Ex 3.2 Soybean/Category graphs.pdf", multiplot)
+
+# Creating a SoybeanNoNA data without any NA values
+SoybeanNoNA <- na.omit(Soybean)
+
+# Summarizing the class with NA values
+TableClass <- table(Soybean$Class)
+TableClassNoNA <- table(SoybeanNoNA$Class)
+
+TableNA <- TableClass - TableClassNoNA
+
+# printing Only Classes with any NA values
+TableNA[TableNA[]>0]
+
+# Printing % NA data for these classes
+ClassNA <- round(TableNA[TableNA[]>0] / TableClass[TableNA[]>0] * 100)
+ClassNA
+
+# Near Zero Variables
+NearZeroVar(Soybean)
+
